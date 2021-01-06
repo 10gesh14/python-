@@ -8,3 +8,19 @@ for db in mycursor:
     print(db)
 
 
+2.create a table in python database
+
+import mysql.connector
+mydb = mysql.connector.connect(host = "localhost",user= "root",password="",database="books")
+mycursor =mydb.cursor()
+mycursor.execute("create table books1(name varchar(20))");
+
+
+3.insert values intop python databse
+import mysql.connector
+mydb = mysql.connector.connect(host = "localhost",user= "root",password="",database="books")
+mycursor =mydb.cursor()
+sql = "inset into books1(name)values(%s)"
+values = [('dbsm'), ('rdbms'),('datasturcture')]
+mycursor.executemany(sql,values)
+mydb.commit()
